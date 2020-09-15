@@ -4,6 +4,7 @@ import "./Die.css";
 class Die extends Component {
   static defaultProps = {
     numbers: ["one", "two", "three", "four", "five", "six"],
+    val: 4,
   };
   constructor(props) {
     super(props);
@@ -17,6 +18,7 @@ class Die extends Component {
       this.props.numbers[this.props.val - 1]
     } fa-5x`;
     if (this.props.locked) classes += " Die-locked";
+    if (this.props.isRolling) classes += " Die-rolling";
     return (
       <i
         className={classes}
