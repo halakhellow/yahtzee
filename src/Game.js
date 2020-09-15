@@ -35,7 +35,6 @@ class Game extends Component {
   }
 
   roll(evt) {
-    // roll dice whose indexes are in reroll
     this.setState((st) => ({
       dice: st.dice.map((d, i) =>
         st.locked[i] ? d : Math.ceil(Math.random() * 6)
@@ -46,7 +45,6 @@ class Game extends Component {
   }
 
   toggleLocked(idx) {
-    // toggle whether idx is in locked or not
     this.setState((st) => ({
       locked: [
         ...st.locked.slice(0, idx),
@@ -57,7 +55,6 @@ class Game extends Component {
   }
 
   doScore(rulename, ruleFn) {
-    // evaluate this ruleFn with the dice and score this rulename
     this.setState((st) => ({
       scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
       rollsLeft: NUM_ROLLS,
