@@ -11,7 +11,11 @@ class RuleRow extends Component {
         onClick={this.props.score === undefined ? this.props.doScore : null}
       >
         <td className="RuleRow-name">{this.props.name}</td>
-        <td className="RuleRow-score">{this.props.score}</td>
+        <td className="RuleRow-score">
+          {this.props.score === undefined
+            ? this.props.description
+            : this.props.score}
+        </td>
       </tr>
     );
   }
